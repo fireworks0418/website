@@ -3,35 +3,7 @@
 <head>
 	<title>Dark Website by Fireworks</title>
 	<link rel="stylsheet" src="https://cdn.rawgit.com/necolas/normalize.css/7369f566/normalize.css">
-	<style>
-		#canvas {
-			position: fixed;
-			top: 0;
-			left: 0;
-			background: #777;
-			z-index: -1;
-		}
-		body {
-			z-index: 1;
-			color: white;
-			text-align: center;
-		}
-		a {
-			color: inherit;
-		}
-		section {
-			display: inline-flex;
-			border: 3px double white;
-			margin-top: 5em;
-		}
-		section > img {
-			width: calc(2 * 48px);
-			height: calc(2 * 56px);
-		}
-		section > div {
-			padding: 1em 2em;
-		}
-	</style>
+	<style>#canvas{position:fixed;top:0;left:0;background:#777;z-index:-1}body{z-index:1;color:#fff;text-align:center}a{color:inherit}section{display:inline-flex;border:3px double #fff;margin-top:5em}section>img{width:calc(2 * 48px);height:calc(2 * 56px)}section>div{padding:1em 2em}</style>
 </head>
 <body>
 	<h1>Welcome To Dark Website</h1>
@@ -50,42 +22,6 @@
 		</div>
 	</section>
 	<canvas id="canvas"></canvas>
-	<script>
-		var canvas = document.getElementById('canvas'),
-		ctx = canvas.getContext('2d');
-
-		function resize() {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-		}
-		resize();
-		window.onresize = resize;
-
-		function noise(ctx) {
-
-			var w = ctx.canvas.width,
-			h = ctx.canvas.height,
-			idata = ctx.createImageData(w, h),
-			buffer32 = new Uint32Array(idata.data.buffer),
-			len = buffer32.length,
-			i = 0;
-
-			for(; i < len;)
-				buffer32[i++] = ((255 * Math.random())|0) << 24;
-
-			ctx.putImageData(idata, 0, 0);
-		}
-
-		var toggle = true;
-		(function loop() {
-			toggle = !toggle;
-			if (toggle) {
-				requestAnimationFrame(loop);
-				return;
-			}
-			noise(ctx);
-			requestAnimationFrame(loop);
-		})();
-	</script>
+	<script>(function(g,a,h,k){function c(){b.width=a.innerWidth;b.height=a.innerHeight}var b=g.getElementById("canvas"),d=b.getContext("2d");c();a.onresize=c;var e=!0;(function l(){e=!e;if(!e){for(var a=d.createImageData(d.canvas.width,d.canvas.height),b=new h(a.data.buffer),c=b.length,f=0;f<c;)b[f++]=(255*Math.random()|0)<<24;d.putImageData(a,0,0)}k(l)})()})(document,window,Uint32Array,requestAnimationFrame);</script>
 </body>
 </html>
